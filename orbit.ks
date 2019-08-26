@@ -41,6 +41,8 @@ STAGE.
 // side boosters
 LOCK THROTTLE TO 0.
 
+WHEN ALTITUDE > 70000 THEN GEAR ON.
+
 STAGE.
 //core booster
 SET X TO 0.
