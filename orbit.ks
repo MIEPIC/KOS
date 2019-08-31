@@ -30,7 +30,7 @@ UNTIL SHIP:ALTITUDE > 50000 {
       WAIT 5.
       LOCK THROTTLE TO 1.
     }
-    // Liquid fuel checker to stage
+    // Liquid fuel checker to when to stage
     IF 30000 < SHIP:ALTITUDE AND SHIP:ALTITUDE < 40000 {
       LOCK THROTTLE TO 0.6.
     }
