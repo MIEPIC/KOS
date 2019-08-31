@@ -1,0 +1,52 @@
+PRINT "airplane steering setup.".
+set steeringmanager:pitchtorquefactor to 0.1.
+set steeringmanager:yawtorquefactor to 0.5.
+set steeringmanager:rollcontrolanglerange to 180.
+steeringmanager:resetpids().
+
+
+SET LINEUP TO latlng(-1.5271, -73.932495).
+
+SET ALT TO SHIP:ALTITUDE.
+
+BRAKES OFF.
+
+STAGE.
+
+LOCK THROTTLE TO 1.
+
+SET X TO 90.
+SET P TO 10.
+
+LOCK STEERING TO HEADING(X, P).
+
+WAIT UNTIL SHIP:ALTITUDE > 80.
+GEAR OFF.
+
+LOCK THROTTLE TO 0.3.
+
+WAIT UNTIL SHIP:ALTITUDE > 100.
+
+PRINT LINEUP:HEADING.
+
+SET X TO LINEUP:HEADING.
+
+WAIT UNTIL SHIP:ALTITUDE > 900.
+
+WHEN (SHIP:LATITUDE < -1.50) THEN{
+  SET X TO 90. SET P TO -10.
+}.
+
+
+
+WAIT UNTIL SHIP:ALTITUDE < 900.
+SET P TO -5.
+
+WAIT UNTIL SHIP:ALTITUDE < 400.
+SET P TO -3.
+
+WAIT UNTIL SHIP:ALTITUDE < 300.
+SET P TO 5.
+
+WAIT UNTIL SHIP:ALTITUDE < 250.
+SET P TO 0.
