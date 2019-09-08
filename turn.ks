@@ -13,11 +13,11 @@ global function turn{
   }
 
   if xleft > xright {
-    set r to -1*(xleft/4).
+    set r to -(xleft/4).
     lock steering to heading(dx, p)*r(0,0,r).
   }
 
-  wait until vang(heading:vector, facing:vector) < 10.
+  wait until vang(steering:vector, facing:vector) < 10.
   set r to 0.
   set x to dx.
   lock steering to heading(x, p)*r(0,0,r).
